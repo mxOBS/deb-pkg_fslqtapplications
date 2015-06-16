@@ -1,0 +1,21 @@
+Source: fslqtapplications
+Section: unknown
+Priority: optional
+Maintainer: Josua Mayer <privacy@not.given>
+Build-Depends:
+ debhelper (>= 9),
+ libgstreamer1.0-0,
+ libgstreamer-plugins-base1.0-0,
+ libqt5core5a,
+ libqt5multimedia5,
+ libqt5gui5,
+ libqt5widgets5,
+Standards-Version: 3.9.6
+Vcs-Git: https://github.com/mxOBS/deb-pkg_fslqtapplications.git
+Vcs-Browser: https://github.com/mxOBS/deb-pkg_fslqtapplications
+
+Package: fslqtapplications
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Todo
+ T. O. D. O.

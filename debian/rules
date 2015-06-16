@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#DH_VERBOSE = 1
+
+# main packaging script based on dh7 syntax
+%:
+	dh $@ 
+
+DESTDIR=$(CURDIR)/debian/fslqtapplications
+
+override_dh_auto_clean:
+	rm -rf fslqtapplications-1.0.1 fslqtapplications-1.0.1.bin
+
+override_dh_auto_install:
+	find ~ /usr/src/packages/SOURCES -maxdepth 1 -iname "fslqtapplications-1.0.1.bin" -exec cp -v {} ./ \; || true
+	./fetch.sh fslqtapplications-1.0.1.bin a703e0b1390455c2f60804a5786a4f1f
+	sh fslqtapplications-1.0.1.bin --auto-accept --force
+	mkdir -p $(DESTDIR)
+	cp -rv fslqtapplications-1.0.1/usr $(DESTDIR)/
